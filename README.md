@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/banner.svg" alt="SOC-AI Investigation Assistant" width="100%" />
+
 <br/>
 
 <img src="https://img.shields.io/badge/FastAPI-Backend-35D0BA?style=for-the-badge&logo=fastapi&logoColor=0A0E13&labelColor=0A0E13" />
@@ -60,7 +62,7 @@ It's designed to run **fully offline out of the box**. The AI module ships with 
 <td colspan="2">
 
 **Exported executive incident report (PDF)**
-<img src="assets/screenshots/executive-incident-report-1.png" alt="Executive incident report" width="100%" />
+<img src="assets/screenshots/executive-incident-report.png" alt="Executive incident report" width="100%" />
 
 </td>
 </tr>
@@ -91,37 +93,6 @@ It's designed to run **fully offline out of the box**. The AI module ships with 
 
 <br/>
 
-## 📁 Project Structure
-
-```
-soc-ai-investigation-assistant/
-├── backend/
-│   └── app/
-│       ├── main.py                # FastAPI app & router registration
-│       ├── config.py               # Settings (.env driven)
-│       ├── database.py             # SQLAlchemy engine/session
-│       ├── models.py / schemas.py  # ORM models & Pydantic schemas
-│       ├── detection_engine.py     # Detection normalization
-│       ├── severity_scoring.py     # 0-100 incident severity scoring
-│       ├── ioc_extraction.py       # IOC extraction
-│       ├── mitre_mapping.py        # ATT&CK tactic/technique mapping
-│       ├── sigma_generator.py      # Sigma rule generation
-│       ├── splunk_queries.py       # SPL query generation
-│       ├── timeline.py             # Incident timeline reconstruction
-│       ├── ai_assistant.py         # LLM investigation (live + mock mode)
-│       ├── pdf_report.py           # Executive PDF report export
-│       └── routers/                # ingest, analyze, ioc, mitre, sigma,
-│                                    # splunk, timeline, report, dashboard, incident
-└── frontend/
-    └── src/
-        ├── pages/                  # Dashboard, IncidentView, MitreMatrix,
-        │                           # NewInvestigation, SigmaLibrary, SplunkLibrary, Login
-        └── components/             # AIPanel, AttackChainRail, DetectionTable,
-                                     # IOCViewer, IncidentTable, SeverityBadge, Sidebar
-```
-
-<br/>
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -129,34 +100,25 @@ soc-ai-investigation-assistant/
 - Node.js 18+
 
 ### 1 · Backend
-
 ```bash
 cd backend
 python -m venv .venv
 .venv\Scripts\activate        # Windows
-# source .venv/bin/activate   # macOS/Linux
-
 pip install fastapi uvicorn sqlalchemy pydantic-settings httpx reportlab pillow
-
 python -m uvicorn app.main:app --reload
 ```
-
-The API comes up at **http://127.0.0.1:8000** (interactive docs at `/docs`).
+Runs at **http://127.0.0.1:8000** (docs at `/docs`).
 
 ### 2 · Frontend
-
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-
-The app comes up at **http://localhost:5173** (or the port Vite assigns).
+Runs at **http://localhost:5173**.
 
 ### 3 · Environment variables
-
 Create `backend/.env`:
-
 ```env
 DATABASE_URL=sqlite:///./soc_ai.db
 SECRET_KEY=change-me-in-production
@@ -164,8 +126,7 @@ ANTHROPIC_API_KEY=            # optional — leave empty to run in offline mock 
 ANTHROPIC_MODEL=claude-sonnet-4-6
 CORS_ORIGINS=["http://localhost:5173"]
 ```
-
-> Leave `ANTHROPIC_API_KEY` empty and the AI Investigation module runs in **mock mode** — it deterministically generates the same structured output shape from the detection/MITRE data already on hand, so the app is fully demo-able offline. Add a real key to switch to live Claude-generated investigations.
+> Leave `ANTHROPIC_API_KEY` empty and the AI Investigation module runs in **mock mode**, generating the same structured output deterministically so the app is fully demo-able offline.
 
 <br/>
 
