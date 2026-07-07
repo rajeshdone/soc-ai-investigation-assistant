@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="SOC-AI Investigation Assistant" width="100%" />
-
 <br/>
 
 <img src="https://img.shields.io/badge/FastAPI-Backend-35D0BA?style=for-the-badge&logo=fastapi&logoColor=0A0E13&labelColor=0A0E13" />
