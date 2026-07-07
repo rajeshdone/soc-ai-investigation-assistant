@@ -62,7 +62,7 @@ It's designed to run **fully offline out of the box**. The AI module ships with 
 <td colspan="2">
 
 **Exported executive incident report**
-<img src="executive-incident-report.png" alt="Executive incident report" width="100%" />
+<img src="executive-incident-report.jpg" alt="Executive incident report" width="100%" />
 
 </td>
 </tr>
