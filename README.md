@@ -179,3 +179,9 @@ Licensed under the [MIT License](LICENSE).
 <div align="center">
 <sub>Built as a portfolio project — SOC-AI Investigation Assistant</sub>
 </div>
+
+<div align="center">
+
+**⭐ Star this repo if it helped you learn something.**
+
+</div>
