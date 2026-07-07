@@ -48,21 +48,21 @@ It's designed to run **fully offline out of the box**. The AI module ships with 
 <td width="50%">
 
 **Dashboard — Incident & IOC view**
-<img src="assets/screenshots/dashboard-ioc-view.png" alt="Dashboard IOC view" width="100%" />
+<img src="dashboard-ioc-view.png" alt="Dashboard IOC view" width="100%" />
 
 </td>
 <td width="50%">
 
 **FastAPI backend — live request log**
-<img src="assets/screenshots/fastapi-backend-terminal.png" alt="FastAPI backend terminal" width="100%" />
+<img src="fastapi-backend-terminal.png" alt="FastAPI backend terminal" width="100%" />
 
 </td>
 </tr>
 <tr>
 <td colspan="2">
 
-**Exported executive incident report (PDF)**
-<img src="assets/screenshots/executive-incident-report.png" alt="Executive incident report" width="100%" />
+**Exported executive incident report**
+<img src="executive-incident-report.png" alt="Executive incident report" width="100%" />
 
 </td>
 </tr>
@@ -73,17 +73,17 @@ It's designed to run **fully offline out of the box**. The AI module ships with 
 ## 🏗️ Architecture & Tech Stack
 
 ```
-┌────────────────────┐        REST / JSON        ┌──────────────────────────┐
-│   React + Vite +    │  ───────────────────────▶ │   FastAPI backend        │
-│   Tailwind CSS       │ ◀───────────────────────  │   (SQLAlchemy + SQLite)  │
-│   frontend (5173)    │                            │   :8000                 │
+┌────────────────────┐        REST / JSON         ┌──────────────────────────┐
+│   React + Vite +   │  ───────────────────────▶ │   FastAPI backend         │
+│   Tailwind CSS     │ ◀───────────────────────  │   (SQLAlchemy + SQLite)   │
+│   frontend (5173)  │                            │   :8000                  │
 └────────────────────┘                            └────────────┬─────────────┘
                                                                   │
                                                     ┌─────────────┴─────────────┐
-                                                    │   AI Investigation Layer   │
-                                                    │   Claude API (live mode)   │
-                                                    │   Deterministic mock mode  │
-                                                    └────────────────────────────┘
+                                                    │   AI Investigation Layer  │
+                                                    │   Claude API (live mode)  │
+                                                    │   Deterministic mock mode │
+                                                    └───────────────────────────┘
 ```
 
 **Backend** — FastAPI, SQLAlchemy, Pydantic Settings, `httpx`, ReportLab (PDF generation)
